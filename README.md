@@ -42,8 +42,11 @@ Current principles:
 
 > **Evidence First · Traceable Sources · Small Core · Extensible Skills**
 
-The SeaFlow base runtime is maintained privately. Its public Skills are
-designed to remain independently usable.
+The base runtime remains private. Public repositories may lag the accepted local implementations, and ChenHai and WenHai have additional privacy boundaries.
+
+**Engineering status:** Six Skills completed a bounded, internally accepted synthetic integration in **V3.5** on tested Windows/CPython configurations. **V3.6 external benchmarking is pending.** This is not third-party peer review, legal-correctness certification, real-corpus validation, or production qualification.
+
+[Explore the SeaFlow architecture and operator showcase](https://hudeyi-66.github.io/seaflow-library-project-control/).
 
 ### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — Legal Text Evidence Skill
 
@@ -79,68 +82,29 @@ Its core principle is:
 
 LuoHai can be used independently of the private SeaFlow base runtime.
 
-### 🔭 Upcoming Skills (Reserved / Planned)
+### 🧩 Additional SeaFlow Skills — Implemented Locally
 
-The following four Skills are **reserved and planned**. Their repositories are the
-canonical future implementation homes and are intentionally documentation-first at
-this stage: the initial commits fix the Skill contract, architectural boundary and
-planned public interface before implementation begins. No working functionality is
-claimed for them yet.
+SeaFlow's six Skills are distinct project-owned modules, not a claim of compatibility with Anthropic Agent Skills. The following four now have bounded, accepted local implementations; their visibility differs from their engineering qualification.
 
-Together they describe how evidence is organised once it has been acquired:
-**WenHai** registers durable documentary assets, **XianHai** places evidence and
-events in time, **JueHai** connects them through typed relationships and
-provenance paths, and **ChenHai** judges whether the resulting evidence is
-sufficient and asks for recovery when it is not.
+#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — Temporal Evidence
 
-#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — Temporal Evidence Orchestration Skill
+XianHai handles temporal evidence state, recheck planning, and admission decisions. Unknown or conflicting effective dates remain unresolved; publication or planned dates do not prove legal effectiveness.
 
-**XianHai** organizes evidence through time.
+#### 🔎 ChenHai（海琛） — Evidence Sufficiency & Process Assessment
 
-- temporal ordering of evidence and events; event timelines
-- evidence-state transitions; temporal validity and staleness awareness
-- missing-period and temporal-gap detection; gap-driven recheck / recovery requests
+ChenHai separates evidence sufficiency (Φ) from retrieval/process assessment (Ψ). Missing coverage, unknown provenance, and shared origins cannot silently become sufficient evidence.
 
-It does not create evidence, does not decide legal conclusions and does not
-replace source retrieval. Timeline and temporal orchestration belong to XianHai;
-general evidence relationships and provenance paths belong to JueHai.
+Its **accepted sufficiency implementation is private**. The public [ChenHai exploration repository](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) is a distinct historical prototype, not the accepted implementation.
 
-#### 🔎 [ChenHai（海琛）](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) — Evidence Exploration and Evaluation Skill
+#### 🗂️ WenHai（海玟） — Documentary Evidence
 
-**ChenHai** asks whether the evidence is sufficient.
+WenHai supports `RegisterAsset`, `PreserveTranscript`, `SegmentEvidence`, and `ExtractAdvice`. It preserves source identity and editorial derivation, with human-reviewed advice treated as proposals rather than approved requirements.
 
-- evidence coverage assessment; insufficiency detection
-- retrieval-risk and recall-risk signals
-- benchmark precision / recall evaluation when qrels exist; runtime coverage proxies otherwise
-- identification of unresolved evidence gaps, with retry / recovery recommendations
+Its repository is **local-only**, with no public source repository. It does not certify unavailable audio, speaker identity, or advice correctness.
 
-It does not retrieve evidence itself, does not invent missing evidence and does
-not silently fill gaps. ChenHai detects insufficiency and requests recovery;
-XianHai decides orchestration; retrieval Skills perform retrieval.
+#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — Evidence & Provenance Graph
 
-#### 🗂️ [WenHai（海玟）](https://github.com/HuDeyi-66/Wen_Hai_Files_Skill) — Documentary Asset Skill
-
-**WenHai** preserves documents as durable evidence assets.
-
-- documentary asset registration; durable file identity
-- source metadata preservation; artifact tracking; document provenance
-- stable documentary references for downstream Skills
-
-Target materials include speeches, policy documents, reports, public statements,
-meeting minutes, and institutional and enterprise records. WenHai is not a generic
-file manager, not a cloud-drive replacement and not a temporal reasoner.
-
-#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — Evidence Graph / Provenance Graph Skill
-
-**JueHai** connects evidence through relationships.
-
-- typed nodes for evidence, claims, sources and events
-- typed relations such as `supports`, `contradicts`, `derived_from`, `contained_in`, `references`, `corroborates`, `qualifies`
-- provenance-path construction and auditable graph traversal
-
-It does not replace a general-purpose knowledge graph platform, does not own
-temporal orchestration and does not infer unsupported edges or convert
-correlation into evidentiary support.
+JueHai provides typed provenance graphs (Γ) and assertion/registry capabilities. Computational provenance is not proof of a legal-reference relationship, causal inference, or independent corroboration.
 
 ## 🧭 How I think about these projects
 
@@ -158,14 +122,14 @@ Governance, Critical Sociology and Cross-cultural Studies** intersect.
 
 ## 🛠 Selected projects
 
-- 🌊 [SeaFlow](https://github.com/HuDeyi-66/SeaFlow) — public entry point for the SeaFlow project and its architecture.
-- 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — evidence-oriented retrieval for textual sources.
-- 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — evidence-oriented processing for structured and tabular sources.
-- 🧭 [SeaFlow Project Control](https://github.com/HuDeyi-66/seaflow-library-project-control) — public project-control and review site for SeaFlow development.
-- 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — *Reserved / Planned* — temporal evidence orchestration: evidence states, timelines and temporal gaps.
-- 🔎 [ChenHai（海琛）](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) — *Reserved / Planned* — evidence coverage, insufficiency detection and recovery recommendations.
-- 🗂️ [WenHai（海玟）](https://github.com/HuDeyi-66/Wen_Hai_Files_Skill) — *Reserved / Planned* — durable documentary asset intake and document provenance.
-- 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — *Reserved / Planned* — provenance-aware evidence graphs with typed nodes and relations.
+- 🌊 [SeaFlow](https://github.com/HuDeyi-66/SeaFlow) — project entry point and architecture.
+- 🧭 [SeaFlow public showcase](https://hudeyi-66.github.io/seaflow-library-project-control/) — six-Skill overview, qualification scope and limitations.
+- 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — legal text, source structure and citation candidates.
+- 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — verifiable tabular evidence and explicit loss accounting.
+- 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — bounded temporal evidence decisions.
+- 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — evidence relationships and computational provenance.
+- 🔎 **ChenHai（海琛）** — accepted implementation private; [public exploration prototype](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) is separate.
+- 🗂️ **WenHai（海玟）** — local-only documentary evidence Skill; no public repository.
 
 ## 📖 Research × Engineering
 
