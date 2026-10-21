@@ -43,70 +43,63 @@ Aktuelle Prinzipien:
 
 > **Evidence First · Traceable Sources · Small Core · Extensible Skills**
 
-Die Basislaufzeit bleibt privat. Öffentliche Repository-Stände können hinter den lokal abgenommenen Implementierungen zurückliegen; ChenHai und WenHai haben zusätzliche Vertraulichkeitsgrenzen.
+Die vier öffentlichen Skill-Repositories sind innerhalb ihrer genehmigten Veröffentlichungsumfänge synchronisiert. Die Basislaufzeit und die abgenommene ChenHai-Implementierung bleiben privat; WenHai bleibt ausschließlich lokal.
 
 **Engineering-Status:** Die sechs Skills haben eine begrenzte, **interne V3.5-Abnahme** der synthetischen Integration unter getesteten Windows-/CPython-Konfigurationen bestanden. **Externes Benchmarking in V3.6 steht noch aus.** Dies ist weder eine unabhängige Begutachtung noch eine Zertifizierung juristischer Korrektheit, realer Korpusleistung oder Produktionsreife.
 
 [SeaFlow-Architektur und die sechs Skills ansehen](https://hudeyi-66.github.io/seaflow-library-project-control/).
 
-### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — Skill für juristische Textevidenz
+## 🧩 Die sechs SeaFlow-Skills
 
-**ShanHai** ist ein quelloffener, eigenständig nutzbarer Skill für juristische
-Textevidenz.
+Alle sechs Skills sind gleichrangige SeaFlow-Module mit lokal implementierten, begrenzten Funktionen. Sie sind projektspezifisch; eine Kompatibilität mit Anthropic Agent Skills wird nicht behauptet. Code-Verfügbarkeit und interne Abnahme sind getrennt zu betrachten.
 
-Schwerpunkte:
+### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — Juristische Textevidenz
 
-- Auffinden der Quelle
-- exakte Textextraktion
-- Erkennung der Struktur
-- native Textzitate
-- Umgang mit Mehrdeutigkeit
-- ausdrückliche Verweigerung, wenn die Evidenz nicht ausreicht
+**Kernfunktionen:** Structure, ResolveRefs, quelltreue Textsegmentierung und Rekonstruktion von Zitaten.
 
-Das Kernprinzip lautet:
+**Evidenzgrenze:** Quellstellen sind an die registrierte Textrepräsentation gebunden. Ein eindeutiger Quellbezeichner beweist weder juristische Verweisidentität noch juristische Richtigkeit.
 
-> **Erst die Quelle finden, dann die Frage beantworten.**
+**Quellcode-Status:** Öffentliches Quellrepository.
 
-ShanHai ist unabhängig von der privaten SeaFlow-Basislaufzeit nutzbar.
+### 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — Tabellarische Evidenz
 
-### 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — Skill für tabellarische Evidenz
+**Kernfunktionen:** ReconstructVerify, AccountLoss, Zellprovenienz und explizite Verlustangaben.
 
-**LuoHai** ist ein quelloffener, eigenständig nutzbarer Skill für strukturierte
-und tabellarische Evidenz.
+**Evidenzgrenze:** Die Prüfung gilt nur für unterstützte Eingaben und ausgewählte Belege; sie bestätigt nicht die Vollständigkeit einer gesamten Arbeitsmappe.
 
-Er ist auf heterogene Tabellen, Berichte, Übersichten und strukturierte
-Datensätze ausgelegt und wahrt dabei die Grenzen der Quelle und ihre
-Nachvollziehbarkeit.
+**Quellcode-Status:** Öffentliches Quellrepository.
 
-Das Kernprinzip lautet:
+### 🗂️ WenHai（海玟） — Dokumentarische Evidenz
 
-> **Evidenz organisieren ≠ Evidenz erzeugen.**
+**Kernfunktionen:** RegisterAsset · PreserveTranscript · SegmentEvidence · ExtractAdvice.
 
-LuoHai ist unabhängig von der privaten SeaFlow-Basislaufzeit nutzbar.
+**Evidenzgrenze:** Textsegmente bewahren deklarierte Positionen und redaktionelle Ableitungen. Nicht vorgelegte Audioquellen, Sprecheridentität und Richtigkeit der Empfehlungen werden nicht zertifiziert.
 
-### 🧩 Vier weitere SeaFlow-Skills — lokal implementiert
+**Quellcode-Status:** Ausschließlich lokales privates Repository; kein öffentlicher Quelllink.
 
-Alle sechs SeaFlow-Skills verfügen inzwischen über eigenständige lokale Implementierungen. Es handelt sich um projektspezifische Module; damit wird keine Kompatibilität mit Anthropic Agent Skills behauptet. Öffentliche Sichtbarkeit und technische Abnahme sind zu unterscheiden.
+### 🔎 ChenHai（海琛） — Evidenzsuffizienz und Prozessbewertung
 
-#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — Zeitbezogene Evidenz
+**Kernfunktionen:** Φ Evidenzsuffizienz und Ψ Bewertung von Recherche und Prozess.
 
-XianHai verarbeitet zeitliche Evidenzzustände, Pläne zur erneuten Prüfung und Zulassungsentscheidungen. Unbekannte oder widersprüchliche Wirksamkeitszeitpunkte bleiben offen; Veröffentlichungsdaten belegen keine rechtliche Geltung.
+**Evidenzgrenze:** Fehlende Abdeckung und ungeklärte Herkunft bleiben sichtbar; eine Prozessbewertung ist keine juristische Korrektheitsprüfung.
 
-#### 🔎 ChenHai（海琛） — Evidenzsuffizienz und Prozessbewertung
+**Quellcode-Status:** Abgenommene Implementierung privat; das öffentliche ChenHai-Erkundungsrepository ist ein gesonderter historischer Prototyp ([öffentlicher Explorationsprototyp](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill)).
 
-ChenHai trennt Evidenzsuffizienz (Φ) von Recherche- und Prozessbewertung (Ψ). Fehlende Abdeckung, ungeklärte Herkunft und gemeinsame Quellen werden nicht stillschweigend zu ausreichender Evidenz.
+### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — Evidenz- und Provenienzgraph
 
-Die **abgenommene Implementierung ist privat**. Das öffentliche [ChenHai-Explorationsrepository](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) ist ein eigenständiger historischer Prototyp und nicht die aktuelle Implementierung.
+**Kernfunktionen:** Γ Provenienzgraphen, typisierte Ereignisse, Aussagen und Registerprüfung.
 
-#### 🗂️ WenHai（海玟） — Dokumentarische Evidenz
+**Evidenzgrenze:** Rechnerische Ableitung belegt weder juristische Verweisbeziehungen noch Kausalität oder unabhängige Bestätigung.
 
-WenHai stellt `RegisterAsset`, `PreserveTranscript`, `SegmentEvidence` und `ExtractAdvice` bereit. Quellenidentität und redaktionelle Bearbeitung bleiben nachvollziehbar; von Menschen geprüfte Empfehlungen sind Vorschläge, keine automatisch genehmigten Anforderungen.
+**Quellcode-Status:** Öffentliches Quellrepository.
 
-Das Repository bleibt **ausschließlich lokal und privat**; es gibt kein öffentliches GitHub-Repository. Unverfügbare Audioaufnahmen, Sprecheridentitäten und die Richtigkeit von Empfehlungen werden nicht zertifiziert.
+### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — Zeitliche Evidenz
 
-#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — Evidenz- und Provenienzgraph
+**Kernfunktionen:** Zeitliche Zustandsbewertung, Planung erneuter Prüfungen und Zulassungsentscheidungen.
 
-JueHai bietet typisierte Provenienzgraphen (Γ) sowie Funktionen für Aussagen und deren Registrierung. Rechnerische Herkunft belegt weder juristische Verweisbeziehungen noch Kausalität oder unabhängige Bestätigung.
+**Evidenzgrenze:** Unbekannte rechtliche Wirksamkeitszeitpunkte bleiben offen; Veröffentlichungs- oder Plandaten belegen keine Rechtswirksamkeit.
+
+**Quellcode-Status:** Öffentliches Quellrepository.
 
 ## 🧭 Wie ich diese Projekte denke
 
