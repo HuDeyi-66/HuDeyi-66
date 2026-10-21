@@ -42,69 +42,63 @@ Current principles:
 
 > **Evidence First · Traceable Sources · Small Core · Extensible Skills**
 
-The base runtime remains private. Public repositories may lag the accepted local implementations, and ChenHai and WenHai have additional privacy boundaries.
+The four public Skill repositories are synchronized within their approved publication manifests; the private base runtime and ChenHai implementation remain private, and WenHai remains local-only.
 
 **Engineering status:** Six Skills completed a bounded, internally accepted synthetic integration in **V3.5** on tested Windows/CPython configurations. **V3.6 external benchmarking is pending.** This is not third-party peer review, legal-correctness certification, real-corpus validation, or production qualification.
 
 [Explore the SeaFlow architecture and operator showcase](https://hudeyi-66.github.io/seaflow-library-project-control/).
 
-### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — Legal Text Evidence Skill
+## 🧩 Six SeaFlow Skills
 
-**ShanHai** is an open-source, standalone Skill for legal-text evidence.
+All six are first-class SeaFlow modules with bounded local implementations. They are project-specific Skills, not a claim of compatibility with Anthropic Agent Skills. Public source availability and internal acceptance are different properties.
 
-It focuses on:
+### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — Legal Text Evidence
 
-- source retrieval
-- exact text extraction
-- structural recognition
-- native text citation
-- ambiguity handling
-- explicit refusal when evidence is insufficient
+**Core capabilities:** Structure, ResolveRefs, source-faithful chunking and citation reconstruction.
 
-Its core principle is:
+**Evidence boundary:** Source spans are tied to their declared representation. A unique source-label match does not establish legal-reference identity or legal correctness.
 
-> **Find the source before answering the question.**
+**Availability:** Public source repository.
 
-ShanHai can be used independently of the private SeaFlow base runtime.
+### 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — Tabular Evidence
 
-### 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — Tabular Evidence Skill
+**Core capabilities:** ReconstructVerify, AccountLoss, selected-cell provenance and loss-aware tabular evidence.
 
-**LuoHai** is an open-source, standalone Skill for structured and tabular
-evidence.
+**Evidence boundary:** Checks are scoped to supported workbook inputs and selected evidence; no whole-workbook completeness claim.
 
-It is designed to work with heterogeneous spreadsheets, reports, tables and
-structured datasets while preserving their source boundaries and
-traceability.
+**Availability:** Public source repository.
 
-Its core principle is:
+### 🗂️ WenHai（海玟） — Documentary Evidence
 
-> **Organizing evidence ≠ creating evidence.**
+**Core capabilities:** RegisterAsset · PreserveTranscript · SegmentEvidence · ExtractAdvice.
 
-LuoHai can be used independently of the private SeaFlow base runtime.
+**Evidence boundary:** Transcript segments preserve declared offsets and editorial derivation. Unprovided audio, speaker identity and advice correctness are not certified.
 
-### 🧩 Additional SeaFlow Skills — Implemented Locally
+**Availability:** Local-only private repository; no public source link.
 
-SeaFlow's six Skills are distinct project-owned modules, not a claim of compatibility with Anthropic Agent Skills. The following four now have bounded, accepted local implementations; their visibility differs from their engineering qualification.
+### 🔎 ChenHai（海琛） — Evidence Sufficiency & Process Assessment
 
-#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — Temporal Evidence
+**Core capabilities:** Φ evidence sufficiency and Ψ retrieval/process assessment.
 
-XianHai handles temporal evidence state, recheck planning, and admission decisions. Unknown or conflicting effective dates remain unresolved; publication or planned dates do not prove legal effectiveness.
+**Evidence boundary:** Missing coverage and unknown provenance remain explicit; process assessment is not legal correctness.
 
-#### 🔎 ChenHai（海琛） — Evidence Sufficiency & Process Assessment
+**Availability:** Accepted implementation private; the public ChenHai exploration repository is a separate historical prototype ([public exploration prototype](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill)).
 
-ChenHai separates evidence sufficiency (Φ) from retrieval/process assessment (Ψ). Missing coverage, unknown provenance, and shared origins cannot silently become sufficient evidence.
+### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — Evidence & Provenance Graph
 
-Its **accepted sufficiency implementation is private**. The public [ChenHai exploration repository](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) is a distinct historical prototype, not the accepted implementation.
+**Core capabilities:** Γ provenance graphs, typed events, assertions and registry checks.
 
-#### 🗂️ WenHai（海玟） — Documentary Evidence
+**Evidence boundary:** Computational derivation edges do not establish legal-reference relationships, causality or independent corroboration.
 
-WenHai supports `RegisterAsset`, `PreserveTranscript`, `SegmentEvidence`, and `ExtractAdvice`. It preserves source identity and editorial derivation, with human-reviewed advice treated as proposals rather than approved requirements.
+**Availability:** Public source repository.
 
-Its repository is **local-only**, with no public source repository. It does not certify unavailable audio, speaker identity, or advice correctness.
+### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — Temporal Evidence
 
-#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — Evidence & Provenance Graph
+**Core capabilities:** Temporal state evaluation, recheck planning and admission decisions.
 
-JueHai provides typed provenance graphs (Γ) and assertion/registry capabilities. Computational provenance is not proof of a legal-reference relationship, causal inference, or independent corroboration.
+**Evidence boundary:** Unknown effective dates remain undetermined; publication or planned dates do not prove legal effectiveness.
+
+**Availability:** Public source repository.
 
 ## 🧭 How I think about these projects
 
