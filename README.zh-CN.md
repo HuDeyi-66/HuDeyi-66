@@ -34,66 +34,63 @@
 
 > **Evidence First · Traceable Sources · Small Core · Extensible Skills**
 
-SeaFlow 基座运行时保持私有。部分公开仓库版本可能落后于本地已验收实现；ChenHai 和 WenHai 另有私有范围限制。
+四个公开 Skill 仓库已在批准的发布清单范围内同步；基座运行时和正式 ChenHai 实现保持私有，WenHai 仍仅在本地维护。
 
 **工程状态：** 六个 Skill 已在经过测试的 Windows/CPython 环境下完成 **V3.5 合成证据六 Skill 集成内部验收**；**V3.6 外部基准评测尚未开始**。这不是第三方同行评议、法律正确性认证、真实语料准确率验证或生产就绪认证。
 
 [查看 SeaFlow 架构与六 Skill 算子展示](https://hudeyi-66.github.io/seaflow-library-project-control/)。
 
-### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — 法律文本证据 Skill
+## 🧩 SeaFlow 六个 Skill
 
-**ShanHai（海珊）** 是一个开源、可独立运行的法律文本证据 Skill。
+六个 Skill 都是 SeaFlow 独立的一级模块，均有范围明确的本地实现；它们是项目自有模块，不代表兼容 Anthropic Agent Skills。源码公开状态与内部工程验收资格应分别理解。
 
-主要处理：
+### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — 法律文本证据
 
-- 来源检索
-- 精确文本提取
-- 结构识别
-- 原生文本引用
-- 歧义处理
-- 证据不足时明确拒绝生成
+**核心能力：** Structure、ResolveRefs、忠实来源的文本切片及引用重建。
 
-核心原则：
+**证据边界：** 引用位置对应已登记的文本表示；来源标签唯一匹配并不证明法律引用目标身份或法律正确性。
 
-> **先找到来源，再回答问题。**
+**源码状态：** 公开源码仓库.
 
-ShanHai（海珊）无需私有 SeaFlow 基座即可独立使用。
+### 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — 表格证据
 
-### 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — 表格证据 Skill
+**核心能力：** ReconstructVerify、AccountLoss、单元格来源定位与显式损失记录。
 
-**LuoHai（海珞）** 是一个开源、可独立运行的结构化 / 表格证据 Skill。
+**证据边界：** 校验限于受支持的工作簿输入和选定证据，不声称整本工作簿完整无遗漏。
 
-它主要面对不同格式的电子表格、报表、表格资料与结构化数据，在整理结构的同时保留来源边界和可追溯性。
+**源码状态：** 公开源码仓库.
 
-核心原则：
+### 🗂️ WenHai（海玟） — 文献证据
 
-> **整理证据 ≠ 创造证据。**
+**核心能力：** RegisterAsset · PreserveTranscript · SegmentEvidence · ExtractAdvice。
 
-LuoHai（海珞）无需私有 SeaFlow 基座即可独立使用。
+**证据边界：** 保留文本片段的声明坐标与编辑衍生关系；不认证未提供的原始录音、发言人身份或建议真实性。
 
-### 🧩 其他四个 SeaFlow Skill · 已在本地实现
+**源码状态：** 本地私有仓库，没有公开源码链接.
 
-目前六个 Skill 均已有各自独立的本地工程实现。它们是 SeaFlow 自有的模块体系，并不意味着与 Anthropic Agent Skills 框架兼容。公开代码的范围和本地验收资格需要分别说明。
+### 🔎 ChenHai（海琛） — 证据充分性与过程评估
 
-#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — 时间证据
+**核心能力：** Φ 证据充分性评估、Ψ 检索及研究过程评估。
 
-负责时间证据状态、复核计划和准入判断。时间不明或相互冲突时保留不确定性；发布日期或计划日期不自动证明法律生效时间。
+**证据边界：** 证据缺口和未知来源必须显式保留；过程评估不等于法律正确性判断。
 
-#### 🔎 ChenHai（海琛） — 证据充分性与过程评估
+**源码状态：** 正式实现私有；公开 ChenHai 探索仓库是独立历史原型 ([公开探索原型](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill)).
 
-通过 Φ（证据充分性）与 Ψ（检索／过程评估）分别判断证据覆盖和研究过程的局限。缺失的来源、未知溯源与共同来源不能自动算作充分证据。
+### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — 证据关系与溯源图
 
-**正式验收的充分性实现属于私有仓库。** 公开的 [ChenHai 探索原型](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) 是独立的历史项目，不等同于当前正式实现。
+**核心能力：** Γ 证据溯源图、带类型事件、断言及登记校验。
 
-#### 🗂️ WenHai（海玟） — 文献证据
+**证据边界：** 计算上的衍生关系不自动证明法律引用关系、因果关系或独立印证。
 
-提供 `RegisterAsset`、`PreserveTranscript`、`SegmentEvidence`、`ExtractAdvice` 等能力，保留文献身份与清稿过程；人工审核的开发建议仍只是候选，不会自动成为正式需求。
+**源码状态：** 公开源码仓库.
 
-**仓库保持本地私有，没有公开 GitHub 仓库。** 海玟不认证未提供的原始录音、发言人身份或建议真实性。
+### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — 时间证据
 
-#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — 证据图与溯源
+**核心能力：** 时间证据状态判断、复核规划及时间证据准入。
 
-提供带类型的证据溯源图 Γ，以及断言与登记能力。计算上的来源关系不自动证明法律引用关系、因果关系或独立印证。
+**证据边界：** 法律生效时间未知时保持未确定；发布日期与计划日期不自动证明法律效力。
+
+**源码状态：** 公开源码仓库.
 
 ## 🧭 我如何理解这些项目
 
