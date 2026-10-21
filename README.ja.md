@@ -34,7 +34,11 @@
 
 > **Evidence First · Traceable Sources · Small Core · Extensible Skills**
 
-SeaFlow のベースランタイムは非公開で維持しています。公開されている Skills は、それとは独立に利用できるよう設計しています。
+ベースランタイムは非公開です。公開リポジトリはローカルの受入済み実装より古い場合があり、ChenHai と WenHai には追加の非公開範囲があります。
+
+**開発・受入状況：** 6 Skills は、検証済みの Windows/CPython 環境で、合成証拠を用いた **V3.5 の限定的な内部統合受入**を完了しました。**V3.6 の外部ベンチマークは未実施**です。第三者査読、法的正確性の認証、実コーパスでの精度検証、本番運用の認定を意味しません。
+
+[SeaFlow のアーキテクチャと 6 Skills](https://hudeyi-66.github.io/seaflow-library-project-control/) を見る。
 
 ### 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — 法律テキスト証拠 Skill
 
@@ -67,52 +71,29 @@ ShanHai は非公開の SeaFlow ベースランタイムなしで利用できま
 
 LuoHai は非公開の SeaFlow ベースランタイムなしで利用できます。
 
-### 🔭 予告中の Skills（Reserved / Planned）
+### 🧩 ローカル実装済みの追加 4 Skills
 
-以下の 4 つの Skill は**予約済み・計画中**です。それぞれのリポジトリは正式な将来の実装場所であり、現段階では意図的にドキュメント優先としています。初期コミットは、実装開始前に Skill の契約・アーキテクチャ上の境界・計画中の公開インターフェースを固定するものです。稼働する機能はまだ何も主張していません。
+現在、SeaFlow の 6 Skills にはそれぞれ独立したローカル実装があります。これらは SeaFlow 固有のモジュールであり、Anthropic Agent Skills との互換性を主張するものではありません。公開範囲と技術的な受入結果は区別しています。
 
-これらは、証拠が獲得された後にどのように組織されるかを記述します。**WenHai** が長期的な文書アセットを登録し、**XianHai** が証拠と出来事を時間の上に置き、**JueHai** がそれらを型付きの関係と来歴パスで結び、**ChenHai** がそこから生じた証拠で足りているかを判断し、足りなければ再取得を求めます。
+#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — 時間的証拠
 
-#### 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — 時系列証拠オーケストレーション Skill
+時間的証拠の状態、再確認計画、受入判断を扱います。不明または矛盾する施行時点は未確定のまま保持し、公布日や予定日を法的効力の証明には使いません。
 
-**XianHai** は、証拠を時間軸の上に置き直します。
+#### 🔎 ChenHai（海琛） — 証拠十分性とプロセス評価
 
-- 証拠と出来事の時系列順序付け；出来事のタイムライン
-- 証拠状態の遷移；時間的な有効性と陳腐化の認識
-- 欠落期間・時間的ギャップの検出；ギャップに基づく再確認／再取得リクエスト
+証拠の十分性（Φ）と検索・調査プロセスの評価（Ψ）を分離します。欠落した資料、来歴不明、同一来源の重複によって十分性を過大評価しません。
 
-証拠を創出せず、法的結論も下さず、出典検索も置き換えません。タイムラインと時系列の編成は XianHai に属し、一般的な証拠関係と来歴パスは JueHai に属します。
+**受入済みの実装は非公開**です。公開されている [ChenHai 探索用リポジトリ](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) は別の歴史的プロトタイプで、現行の受入済み実装ではありません。
 
-#### 🔎 [ChenHai（海琛）](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) — 証拠探查・評価 Skill
+#### 🗂️ WenHai（海玟） — 文書証拠
 
-**ChenHai** は「今の証拠で足りているか」を問います。
+`RegisterAsset`、`PreserveTranscript`、`SegmentEvidence`、`ExtractAdvice` を提供します。出典の同一性と編集上の派生を保存し、人間が確認した助言も自動的に承認済みの要件にはしません。
 
-- 証拠カバレッジの評価；不十分性の検出
-- 検索リスク／再現率リスクのシグナル
-- qrels がある場合のベンチマーク適合率／再現率の評価；ない場合は実行時カバレッジの代理指標
-- 未解決の証拠ギャップの特定と、再試行／再取得の推奨
+リポジトリは**ローカルのみで非公開**であり、公開 GitHub リポジトリはありません。未提供の音声、話者の身元、助言内容の正しさを認証するものではありません。
 
-自ら検索せず、欠落した証拠を捏造せず、ギャップを黙って埋めません。ChenHai が不十分性を検出して再取得を要求し、XianHai が編成を決め、実際の検索は検索系 Skill が行います。
+#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — 証拠・来歴グラフ
 
-#### 🗂️ [WenHai（海玟）](https://github.com/HuDeyi-66/Wen_Hai_Files_Skill) — 文書アセット Skill
-
-**WenHai** は、文書を追跡可能で長期利用できる証拠資産にします。
-
-- 文書アセットの登録；長期的に安定したファイル同一性
-- 出典メタデータの保全；アーティファクトの追跡；文書の来歴
-- 下流 Skill のための安定した文書参照
-
-対象は、演説、政策文書、報告書、公開声明、議事録、機関・企業の文書などです。WenHai は汎用ファイルマネージャでも、クラウドストレージの代替でも、時系列推論器でもありません。
-
-#### 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — 証拠グラフ／来歴グラフ Skill
-
-**JueHai** は、証拠を関係によって結びます。
-
-- 証拠・主張・出典・出来事の型付きノード
-- `supports`、`contradicts`、`derived_from`、`contained_in`、`references`、`corroborates`、`qualifies` などの型付き関係
-- 来歴パスの構築と、監査可能なグラフ走査
-
-汎用ナレッジグラフ基盤を置き換えず、時系列の編成を担わず、裏付けのない辺を推論せず、相関を黙って証拠上の支持に変換しません。
+型付き来歴グラフ（Γ）、アサーションと登録の機能を備えます。計算上の来歴は、法的引用関係、因果関係、独立した裏付けの証明にはなりません。
 
 ## 🧭 これらのプロジェクトをどう考えているか
 
@@ -129,14 +110,14 @@ LuoHai は非公開の SeaFlow ベースランタイムなしで利用できま�
 
 ## 🛠 主なプロジェクト
 
-- 🌊 [SeaFlow](https://github.com/HuDeyi-66/SeaFlow) — SeaFlow プロジェクトとそのアーキテクチャの公開入口。
-- 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — テキスト資料のための証拠志向の検索 Skill。
-- 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — 構造化・表形式資料のための証拠志向の処理 Skill。
-- 🧭 [SeaFlow Project Control](https://github.com/HuDeyi-66/seaflow-library-project-control) — SeaFlow 開発の公開プロジェクト管理・レビューサイト。
-- 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — *Reserved / Planned* — 時系列証拠オーケストレーション：証拠状態、タイムライン、時間的ギャップ。
-- 🔎 [ChenHai（海琛）](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) — *Reserved / Planned* — 証拠カバレッジ、不十分性の検出、再取得の推奨。
-- 🗂️ [WenHai（海玟）](https://github.com/HuDeyi-66/Wen_Hai_Files_Skill) — *Reserved / Planned* — 長期的な文書アセットの取り込みと文書の来歴。
-- 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — *Reserved / Planned* — 型付きノードと関係による来歴対応の証拠グラフ。
+- 🌊 [SeaFlow](https://github.com/HuDeyi-66/SeaFlow) — プロジェクトとアーキテクチャの公開入口。
+- 🧭 [SeaFlow 技術ショーケース](https://hudeyi-66.github.io/seaflow-library-project-control/) — 6 Skills と受入範囲・制約。
+- 📘 [ShanHai（海珊）](https://github.com/HuDeyi-66/Shan_Hai_Code_Skill) — 法律テキスト、構造観察、引用候補。
+- 📊 [LuoHai（海珞）](https://github.com/HuDeyi-66/Luo_Hai_Tables_Skill) — 検証可能な表データと明示的な情報損失。
+- 🕰️ [XianHai（海现）](https://github.com/HuDeyi-66/Xian_Hai_Time_Skill) — 範囲を限定した時間的証拠の判断。
+- 🕸️ [JueHai（海珏）](https://github.com/HuDeyi-66/Jue_Hai_Graph_Skill) — 証拠関係と計算上の来歴。
+- 🔎 **ChenHai（海琛）** — 受入済み実装は非公開。 [公開探索プロトタイプ](https://github.com/HuDeyi-66/Chen_Hai_Explore_Skill) は別物。
+- 🗂️ **WenHai（海玟）** — ローカル非公開の文書証拠 Skill。公開リポジトリなし。
 
 ## 📖 研究 × エンジニアリング
 
